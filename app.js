@@ -112,3 +112,24 @@ function countDownFunc(elm) {
     elm.style.pointerEvents = 'none';
   });
 }
+
+// Will check if all cards have class(rotate).
+function Win(elm) {
+  let checkCards = Array.from(elm).every((elm) => {
+    return elm.classList.contains('rotate');
+  });
+
+  if (checkCards === true) {
+    clearInterval(interval2);
+    clearInterval(interval);
+    cardsContainer.classList.add('active');
+    clearInterval(interval3);
+    newDiv.style.display = 'flex';
+    newDiv.textContent = 'You win!!';
+  }
+}
+
+let interval3 = setInterval(() => {
+  Win(allCards);
+}, 500);
+
