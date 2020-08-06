@@ -4,16 +4,25 @@
 ::after,
 ::before {
   box-sizing: border-box;
+  
   margin: 0;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
   background-color: #393e46;
+  -ms-flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
   justify-content: center;
   flex-direction: column;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   align-items: center;
-  position: relative;
   display: flex;
   height: 100vh;
   width: 100%;
@@ -21,7 +30,11 @@ body {
 
 .newDiv {
   background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
   justify-content: center;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
   align-items: center;
   text-align: center;
   position: absolute;
@@ -43,13 +56,21 @@ body {
 }
 
 .cards-container {
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: space-evenly;
+  -webkit-box-direction: normal;
   justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
   background-color: #639cd9;
+  -ms-flex-flow: row wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
   flex-flow: row wrap;
   align-items: center;
   position: relative;
   border-radius: 5px;
   margin: 3rem auto;
+  display: flex;
   display: flex;
   height: 50vh;
   width: 90%;
@@ -60,6 +81,7 @@ body {
 }
 
 .card {
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: transform 1s;
   position: relative;
@@ -80,9 +102,9 @@ body {
 
 .face-card::after {
   font: normal normal normal 2rem fontawesome;
-  transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   content: '\f1e2';
   color: #639cd9;
@@ -91,6 +113,8 @@ body {
 }
 
 .back-card {
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
   background-color: #363636;
   backface-visibility: hidden;
   transform: rotateY(180deg);
@@ -100,9 +124,9 @@ body {
 }
 
 .back-card i {
-  transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   font-size: 2rem;
   color: #fff;
@@ -111,9 +135,9 @@ body {
 }
 
 .countdown {
-  transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   color: aliceblue;
   font-size: 3rem;
@@ -123,15 +147,15 @@ body {
 }
 
 .card.active {
-  transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .card.rotate {
-  transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
   pointer-events: none;
 }
 
