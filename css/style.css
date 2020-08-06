@@ -81,6 +81,8 @@ body {
 .face-card::after {
   font: normal normal normal 2rem fontawesome;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   position: absolute;
   content: '\f1e2';
   color: #639cd9;
@@ -99,6 +101,8 @@ body {
 
 .back-card i {
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   position: absolute;
   font-size: 2rem;
   color: #fff;
@@ -108,6 +112,8 @@ body {
 
 .countdown {
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   position: absolute;
   color: aliceblue;
   font-size: 3rem;
@@ -118,10 +124,14 @@ body {
 
 .card.active {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
 }
 
 .card.rotate {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
   pointer-events: none;
 }
 
@@ -144,6 +154,7 @@ body {
     border-radius: 5px;
     margin: 3rem auto;
     display: flex;
+    display: -webkit-flex;
     height: 50vh;
     max-width: 490px;
   }
