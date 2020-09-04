@@ -4,7 +4,9 @@ const countDown = document.getElementsByClassName('countdown')[0],
   cardsContainer = document.getElementsByClassName('cards-container')[0],
   newDiv = document.createElement('div'),
   btn = document.getElementsByClassName('btn')[0],
-  timeOut = 1000;
+  color = Array.from(document.querySelectorAll('.color_container div')),
+  faceCard = Array.from(document.querySelectorAll('.face-card'));
+timeOut = 1000;
 
 let number = countDown.textContent,
   interval,
@@ -30,14 +32,7 @@ window.onload = (event) => {
       countDown.style.display = 'none'; // Will hidden the cuntDown.
 
       // Will start to decreasing time for game (25) seconds.
-      interval2 = setInterval((elm) => {
-        timer.textContent--;
-        if (timer.textContent === '0') {
-          //If Timer equal 0. will show div with (game over).
-          newDiv.style.display = 'flex';
-          clearInterval(interval2);
-        }
-      }, timeOut);
+      decreasingTime(timer);
       clearInterval(interval);
     }
   }, timeOut);
@@ -91,6 +86,37 @@ allCards.forEach((cards) => {
   };
 });
 
+// change color of game
+color.forEach((elm) => {
+  //Will make for loop in color(blue, red, yellow)
+  elm.onclick = (event) => {
+    let elementClassName = event.target.className;
+
+    if (elementClassName === 'red') {
+      // Will check what color user choose.
+      btn.classList.remove('yellow');
+      btn.classList.add('red');
+      cardsContainer.style.backgroundColor = '#e94560';
+      newDiv.style.color = '#e94560';
+      faceCard.forEach((elm) => {
+        elm.classList.remove('activeYellow'); // if elm have class name (activeYellow) will deleted then will add new class.
+        elm.classList.add('activeRed');
+      });
+    }
+
+    if (elementClassName === 'yellow') {
+      btn.classList.remove('red');
+      btn.classList.add('yellow');
+      cardsContainer.style.backgroundColor = '#ffc93c';
+      newDiv.style.color = '#ffc93c';
+      faceCard.forEach((elm) => {
+        elm.classList.remove('activeRed');
+        elm.classList.add('activeYellow');
+      });
+    }
+  };
+});
+
 // Shuffling the elements.
 function shuffle(array) {
   array.forEach((elm, index) => {
@@ -113,6 +139,18 @@ function countDownFunc(elm) {
   });
 }
 
+// After the game start  will start to decreasing time for game (25) seconds.
+function decreasingTime(time) {
+  interval2 = setInterval((elm) => {
+    time.textContent--;
+    if (time.textContent === '0') {
+      //If time equal 0. will show div with (game over).
+      newDiv.style.display = 'flex';
+      clearInterval(interval2);
+    }
+  }, timeOut);
+}
+
 // Will check if all cards have class(rotate).
 function Win(elm) {
   let checkCards = Array.from(elm).every((elm) => {
@@ -129,7 +167,7 @@ function Win(elm) {
   }
 }
 
+//Will check if you win will stob.
 let interval3 = setInterval(() => {
   Win(allCards);
 }, 500);
-
